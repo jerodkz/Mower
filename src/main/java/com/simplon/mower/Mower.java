@@ -3,10 +3,13 @@ package com.simplon.mower;
 
 public class Mower {
 
-    private Position position;
+    //private Position position;
     int x;
     int y;
     private Orientation o;
+    int lawnX;
+    int lawnY;
+
 
     public Mower(int x, int y, Orientation o){
         this.x=x;
@@ -15,19 +18,18 @@ public class Mower {
     }
 
 
-    public Position getPosition() {
-        return position;
-    }
-
     public void setPosition(int x,int y,Orientation o) {
         this.x=x;
         this.y=y;
         this.o=o;
     }
 
-    @Override
-    public String toString() {
-        return x+""+""+y+o;
+    public void setLawnX(int lawnX) {
+        this.lawnX = lawnX;
+    }
+
+    public void setLawnY(int lawnY) {
+        this.lawnY = lawnY;
     }
 
     public void move(char c) {
@@ -43,13 +45,13 @@ public class Mower {
 
     private void moveForward() {
         switch (o) {
-            case N:setPosition(x,y+1,o);
+            case N:if(y+1<=lawnY){setPosition(x,y+1,o);}
             break;
-            case E:setPosition(x+1,y,o);
+            case E:if(x+1<=lawnX){setPosition(x+1,y,o);}
             break;
-            case S:setPosition(x,y-1,o);
+            case S:if(y-1>=0){setPosition(x,y-1,o);}
             break;
-            case W:setPosition(x-1,y,o);
+            case W:if(x-1>=0){setPosition(x-1,y,o);}
             break;
         }
     }
@@ -79,4 +81,10 @@ public class Mower {
             break;
         }
     }
+
+    @Override
+    public String toString() {
+        return x+""+""+y+o;
+    }
+
 }

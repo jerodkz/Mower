@@ -37,7 +37,9 @@ public class Reader {
 
 
             if ((line = br.readLine()) != null) {
-                Lawn lawn = new Lawn(Character.getNumericValue(line.charAt(0)),Character.getNumericValue(line.charAt(1)));
+                mower.setLawnX(Character.getNumericValue(line.charAt(0)));
+                mower.setLawnY(Character.getNumericValue(line.charAt(1)));
+                //Lawn lawn = new Lawn(Character.getNumericValue(line.charAt(0)),Character.getNumericValue(line.charAt(1)));
                 //System.out.println(lawn);
             }
             int i = 0;
